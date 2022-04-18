@@ -259,10 +259,10 @@ export function updateStyle(id: string, content: string): void {
     if (!style) {
       style = document.createElement('style')
       style.setAttribute('type', 'text/css')
-      style.innerHTML = content
+      style.textContent = content
       document.head.appendChild(style)
     } else {
-      style.innerHTML = content
+      style.textContent = content
     }
   }
   sheetsMap.set(id, style)

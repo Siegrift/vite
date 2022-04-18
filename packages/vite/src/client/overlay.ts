@@ -1,3 +1,4 @@
+/// <reference types="trusted-types" />
 import type { ErrorPayload } from 'types/hmrPayload'
 
 const template = /*html*/ `
@@ -120,8 +121,18 @@ export class ErrorOverlay extends HTMLElement {
 
   constructor(err: ErrorPayload['err']) {
     super()
+
+    let policy
+    if (window.trustedTypes) {
+      policy = window.trustedTypes.createPolicy('vite-overlay', {
+        createHTML: (s) => s
+      })
+    }
+
     this.root = this.attachShadow({ mode: 'open' })
-    this.root.innerHTML = template
+    this.root.innerHTML = policy
+      ? (policy.createHTML(template) as any)
+      : template
 
     codeframeRE.lastIndex = 0
     const hasFrame = err.frame && codeframeRE.test(err.frame)

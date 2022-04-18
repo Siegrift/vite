@@ -1,5 +1,14 @@
 # vite ⚡
 
+## Build locally
+
+Run: (from vite root folder)
+
+1. `pnpm i`
+2. `pnpm run build`
+
+## Other
+
 > Next Generation Frontend Tooling
 
 - 💡 Instant Server Start

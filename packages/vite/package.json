@@ -75,6 +75,7 @@
     "@types/resolve": "^1.20.1",
     "@types/sass": "~1.43.1",
     "@types/stylus": "^0.48.37",
+    "@types/trusted-types": "^2.0.2",
     "@types/ws": "^8.5.3",
     "@vue/compiler-dom": "^3.2.31",
     "acorn": "^8.7.0",
